@@ -1,0 +1,81 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s; /* Transição suave entre os temas */
+  }
+  
+  #calendar {
+    background-color: #fff; /* Cor de fundo padrão do calendário */
+    color: #333; /* Cor do texto padrão do calendário */
+  }
+  
+  /* Estilos para o botão de tema */
+  #theme-toggle {
+    padding: 10px 20px;
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  #theme-toggle:hover {
+    background-color: #0069d9; /* Cor do botão ao passar o mouse */
+  }
+  
+  /* Estilos de cor que mudam com o tema */
+  body.light-theme {
+    background-color: #f5f5f5; /* Cor de fundo do tema claro */
+    color: #333; /* Cor do texto do tema claro */
+  }
+  
+  body.dark-theme {
+    background-color: #333; /* Cor de fundo do tema escuro */
+    color: #fff; /* Cor do texto do tema escuro */
+  }
+  
+  body.light-theme #calendar {
+    background-color: #fff; /* Cor de fundo do calendário no tema claro */
+    color: #333; /* Cor do texto do calendário no tema claro */
+  }
+  
+  body.dark-theme #calendar {
+    background-color: #444; /* Cor de fundo do calendário no tema escuro */
+    color: #fff; /* Cor do texto do calendário no tema escuro */
+  }
+  
+  body.light-theme .day {
+    background-color: #fff; /* Cor de fundo dos dias no tema claro */
+  }
+  
+  body.dark-theme .day {
+    background-color: #444; /* Cor de fundo dos dias no tema escuro */
+  }
+  
+  /* Estilos para o calendário no tema escuro */
+  #calendar.dark-theme-calendar { /* Aplique a classe ao #calendar */
+    background-color: #000; /* Preto */
+    color: #fff; /* Branco */
+  }
+  
+  /* Outros estilos relacionados ao tema */
+  body.light-theme .modal-content {
+    background-color: #fefefe; /* Cor de fundo do modal no tema claro */
+    border: 1px solid #888; /* Borda do modal no tema claro */
+  }
+  
+  body.dark-theme .modal-content {
+    background-color: #333; /* Cor de fundo do modal no tema escuro */
+    border: 1px solid #444; /* Borda do modal no tema escuro */
+  }
+  
+  body.light-theme .close {
+    color: #aaa; /* Cor do botão de fechar no tema claro */
+  }
+  
+  body.dark-theme .close {
+    color: #fff; /* Cor do botão de fechar no tema escuro */
+  }
