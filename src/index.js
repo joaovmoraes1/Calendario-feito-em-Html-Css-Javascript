@@ -1,5 +1,5 @@
-const calendar = document.getElementById('calendar');
-let events = JSON.parse(localStorage.getItem('events')) || []; // Carrega eventos do localStorage
+const calendarEl = document.getElementById('calendar');
+let events = JSON.parse(localStorage.getItem('events')) || [];
 let selectedDate = null;
 let isEditMode = false;
 let editEventId = null;
@@ -33,8 +33,7 @@ function saveEvent(event) {
 
   if (isEditMode) {
     const eventIndex = events.findIndex(ev => ev.id === editEventId);
-    events[eventIndex].title = eventTitle;
-    events[eventIndex].date = eventDate;
+    events[eventIndex] = { ...events[eventIndex], title: eventTitle, date: eventDate };
   } else {
     const newEvent = {
       id: Date.now().toString(),
@@ -68,7 +67,7 @@ function editEvent(eventId) {
 
 // Função para renderizar o calendário
 function renderCalendar() {
-  calendar.innerHTML = '';
+  calendarEl.innerHTML = '';
 
   for (let i = 1; i <= 31; i++) {
     const day = document.createElement('div');
@@ -83,10 +82,7 @@ function renderCalendar() {
       eventElement.textContent = event.title;
       eventElement.draggable = true;
 
-      eventElement.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData('text/plain', event.id);
-      });
-
+      eventElement.addEventListener('dragstart', (e) => e.dataTransfer.setData('text/plain', event.id));
       eventElement.addEventListener('dblclick', () => editEvent(event.id));
       eventElement.addEventListener('contextmenu', (e) => {
         e.preventDefault();
@@ -96,17 +92,17 @@ function renderCalendar() {
       day.appendChild(eventElement);
     });
 
-    day.addEventListener('click', () => openModal(`2024-08-${i < 10 ? '0' : ''}${i}`));
+    day.addEventListener('click', () => openModal(`2024-08-${i.toString().padStart(2, '0')}`));
     day.addEventListener('dragover', (e) => e.preventDefault());
     day.addEventListener('drop', (e) => {
       const eventId = e.dataTransfer.getData('text/plain');
       const eventIndex = events.findIndex(ev => ev.id === eventId);
-      events[eventIndex].date = `2024-08-${i < 10 ? '0' : ''}${i}`;
+      events[eventIndex].date = `2024-08-${i.toString().padStart(2, '0')}`;
       localStorage.setItem('events', JSON.stringify(events));
       renderCalendar();
     });
 
-    calendar.appendChild(day);
+    calendarEl.appendChild(day);
   }
 }
 
@@ -121,12 +117,8 @@ const themeToggleButton = document.getElementById('theme-toggle');
 themeToggleButton.addEventListener('click', () => {
   document.body.classList.toggle('dark-theme');
   const isDarkMode = document.body.classList.contains('dark-theme');
-  themeToggleButton.textContent = isDarkMode ? 'Dark theme' : 'Light theme'; 
+  themeToggleButton.textContent = isDarkMode ? 'Light theme' : 'Dark theme';
 
-  // Ajuste nesse trecho para mudar a cor do calendário
-  const calendar = document.getElementById('calendar');
-  calendar.classList.remove('dark-theme-calendar'); // Remove a classe antes de adicionar ou remover
-  if (isDarkMode) {
-    calendar.classList.add('dark-theme-calendar'); // Adiciona a classe para o tema escuro do calendário
-  } 
+  // Ajuste no estilo do calendário
+  calendarEl.classList.toggle('dark-theme-calendar', isDarkMode);
 });
