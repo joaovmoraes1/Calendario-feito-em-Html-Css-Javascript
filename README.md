@@ -26,7 +26,7 @@ Este projeto é um calendário interativo desenvolvido com HTML, CSS e JavaScrip
 4. Inicie o projeto com `npm start`
 5. Acesse o calendário no navegador (geralmente em `http://localhost:3000`)
 
-## Interação com o Calendário
+## Interação com o Calendário (Funcionalidade a se Aplicar ainda)
 - Clique em um dia para adicionar um novo evento
 - Duplo clique em um evento para editá-lo
 - Clique com o botão direito em um evento para excluí-lo
