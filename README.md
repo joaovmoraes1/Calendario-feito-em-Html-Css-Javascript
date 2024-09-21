@@ -1,5 +1,7 @@
 # Projeto Calendário Interativo
 
+![image](https://github.com/user-attachments/assets/b00a9b7b-2737-47eb-9123-25606b437224)
+
 ## Descrição
 Este projeto é um calendário interativo desenvolvido com HTML, CSS e JavaScript, utilizando a biblioteca FullCalendar (https://fullcalendar.io/). Ele oferece uma interface intuitiva para gerenciar eventos, com funcionalidades como adição, edição, exclusão e arrastar-e-soltar, além de suporte para temas claro e escuro.
 
