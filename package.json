@@ -19,6 +19,6 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "fullcalendar": "^6.1.15"
+    "fullcalendar": "^6.1.17"
   }
 }
